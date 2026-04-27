@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>מחולל חתימות מייל</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="form-panel" aria-labelledby="page-title">
+        <div class="brand-mark">AI</div>
+        <h1 id="page-title">מחולל חתימות מייל</h1>
+        <p>מזינים פרטים בעברית ובאנגלית, מקבלים שתי חתימות PNG בגודל מוכן לשימוש.</p>
+
+        <form id="signature-form">
+          <div class="field-grid">
+            <label>
+              שם בעברית
+              <input name="nameHe" autocomplete="name" required value="שם העובד" />
+            </label>
+            <label>
+              תפקיד בעברית
+              <input name="roleHe" required value="ראש מוצר" />
+            </label>
+            <label>
+              שם באנגלית
+              <input name="nameEn" autocomplete="name" required value="Employee Name" dir="ltr" />
+            </label>
+            <label>
+              תפקיד באנגלית
+              <input name="roleEn" required value="Head of Product" dir="ltr" />
+            </label>
+            <label>
+              תחום / יחידה באנגלית
+              <input name="unitEn" required value="Border Defense AI" dir="ltr" />
+            </label>
+            <label>
+              טלפון
+              <input name="phone" autocomplete="tel" required value="050-0000000" dir="ltr" />
+            </label>
+            <label>
+              מייל לשליחה
+              <input name="email" type="email" autocomplete="email" required value="name@example.com" dir="ltr" />
+            </label>
+            <label>
+              כתובת בעברית
+              <input name="addressHe" required value="מנחם בגין 125, ת״א" />
+            </label>
+            <label>
+              כתובת באנגלית
+              <input name="addressEn" required value="Begin Road 125, Tel Aviv" dir="ltr" />
+            </label>
+          </div>
+
+          <div class="actions">
+            <button type="button" id="download-he">הורדת עברית</button>
+            <button type="button" id="download-en">הורדת אנגלית</button>
+            <button type="submit" class="primary">שליחה למייל</button>
+          </div>
+        </form>
+
+        <p id="status" class="status" role="status" aria-live="polite"></p>
+      </section>
+
+      <section class="preview-panel" aria-label="תצוגה מקדימה">
+        <div class="preview-header">
+          <h2>תצוגה מקדימה</h2>
+          <span>PNG 1200x395</span>
+        </div>
+        <div class="canvas-stack">
+          <canvas id="signature-he" width="1200" height="395"></canvas>
+          <canvas id="signature-en" width="1200" height="395"></canvas>
+        </div>
+      </section>
+    </main>
+
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>
