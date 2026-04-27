@@ -6,7 +6,7 @@ const canvases = {
 };
 
 const logo = new Image();
-logo.src = "/assets/ai-autonomy-logo.png";
+logo.src = "./assets/ai-autonomy-logo.png";
 
 const colors = {
   nameBlue: "#244e75",
