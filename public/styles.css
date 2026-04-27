@@ -131,7 +131,6 @@ button {
 }
 
 button.primary {
-  grid-column: 1 / -1;
   background: #172033;
   border-color: #172033;
   color: #ffffff;
@@ -215,9 +214,5 @@ canvas {
 
   .actions {
     grid-template-columns: 1fr;
-  }
-
-  button.primary {
-    grid-column: auto;
   }
 }

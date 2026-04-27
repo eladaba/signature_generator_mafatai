@@ -204,37 +204,8 @@ function downloadSignature(kind) {
   link.click();
 }
 
-async function sendSignatures(event) {
-  event.preventDefault();
-  redraw();
-  setStatus("שולח את החתימות...");
-
-  const data = getData();
-  const response = await fetch("/api/send-signatures", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      recipientEmail: data.email,
-      employeeName: data.nameHe || data.nameEn,
-      signatures: {
-        he: canvases.he.toDataURL("image/png"),
-        en: canvases.en.toDataURL("image/png")
-      }
-    })
-  });
-
-  const payload = await response.json().catch(() => ({}));
-  if (!response.ok) {
-    throw new Error(payload.message || "השליחה נכשלה.");
-  }
-
-  setStatus("החתימות נשלחו למייל בהצלחה.");
-}
-
 form.addEventListener("input", redraw);
-form.addEventListener("submit", (event) => {
-  sendSignatures(event).catch((error) => setStatus(error.message, true));
-});
+form.addEventListener("submit", (event) => event.preventDefault());
 
 document.querySelector("#download-he").addEventListener("click", () => downloadSignature("he"));
 document.querySelector("#download-en").addEventListener("click", () => downloadSignature("en"));
