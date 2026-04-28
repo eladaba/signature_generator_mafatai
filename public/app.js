@@ -156,17 +156,18 @@ function drawHebrewSignature(ctx, data) {
   ctx.font = `800 ${nameSize}px ${canvasFont}`;
   ctx.fillText(data.nameHe, textRight, 87);
 
-  const role = data.roleEn || data.roleHe;
-  ctx.direction = "ltr";
+  const role = data.roleHe || data.roleEn;
+  ctx.direction = "rtl";
   ctx.textAlign = "right";
   const roleSize = fitText(ctx, role, maxTextWidth, 45, 30, 800);
   ctx.fillStyle = colors.black;
   ctx.font = `800 ${roleSize}px ${canvasFont}`;
   ctx.fillText(role, textRight, 141);
 
-  const unitSize = fitText(ctx, data.unitEn, maxTextWidth, 45, 29, 400);
+  const unit = data.unitHe || data.unitEn;
+  const unitSize = fitText(ctx, unit, maxTextWidth, 45, 29, 400);
   ctx.font = `400 ${unitSize}px ${canvasFont}`;
-  ctx.fillText(data.unitEn, textRight, 196);
+  ctx.fillText(unit, textRight, 196);
 
   drawHorizontalRule(ctx, lineLeft, 224, 610);
 
